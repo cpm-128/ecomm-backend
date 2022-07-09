@@ -8,8 +8,7 @@ class Product extends Model {}
 
 // set up fields and rules for Product model
 Product.init(
-  {
-    // ================================
+  { // ================================
     // TABLE COLUMN DEFINITIONS GO HERE
     // defining the Post schema
     // ================================
@@ -48,8 +47,7 @@ Product.init(
       }
     }
   },
-  {
-    // ====================================
+  { // ====================================
     // TABLE CONFIGURATIONS OPTIONS GO HERE
     // configure the metadata
     //=====================================
