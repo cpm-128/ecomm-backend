@@ -1,11 +1,29 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
+// ==============================
+// CRUD OPERATIONS
 // The `/api/categories` endpoint
+// ==============================
 
+// GET all categories
 router.get('/', (req, res) => {
   // find all categories
-  // be sure to include its associated Products
+  Category.findAll({
+    // be sure to include its associated Products
+    include: [
+      {
+        model: Product,
+        attributes: ['id' , 'product_name' , 'price' , 'stock' , 'category_id']
+      }
+    ]
+  })
+  // Promise that captures the response from the db call
+  .then(dbAllCategoryData => res.json(dbAllCategoryData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 router.get('/:id', (req, res) => {
