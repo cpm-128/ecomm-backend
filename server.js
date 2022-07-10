@@ -13,7 +13,7 @@ app.use(routes);
 
 // sync sequelize models to the database, then turn on the server
 // force: true resyncs the connections and tables recreated
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(`>> App listening on port ${PORT}!`);
   })
