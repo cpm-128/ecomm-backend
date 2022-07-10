@@ -54,16 +54,59 @@ router.get('/:id', (req, res) => {
   });
 });
 
+// POST tag
 router.post('/', (req, res) => {
-  // create a new tag
+  /* req.body should look like this...
+    {
+      tag_name: "rock music",
+    }
+  */
+ Tag.create(req.body)
+ .then(dbCreateTagData => res.json(dbCreateTagData))
+ .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+ });
 });
 
+// PUT a tag name by id
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+  Tag.update(req.body , {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbUpdateSingleTag => {
+    if (!dbUpdateSingleTag) {
+      res.status(404).json({ message: 'No tag found with this id.' });
+      return;
+    }
+    res.json(dbUpdateSingleTag);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
+// DELETE a single tag
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  Tag.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(dbDeleteSingleTag => {
+    if (!dbDeleteSingleTag) {
+      res.status(404).json({ message: 'No tag found with this id.' });
+      return;
+    }
+    res.json(dbDeleteSingleTag);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
