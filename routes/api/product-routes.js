@@ -1,17 +1,39 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
+// ============================
+// CRUD OPERATIONS
 // The `/api/products` endpoint
+// ============================
 
 // get all products
 router.get('/', (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag data
+  Product.findAll({
+    // be sure to include its associated Category and Tag data
+    include: [
+      {
+        model: Category,
+        attributes: ['id' , 'category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['id' , 'tag_name'],
+      }
+    ]
+  })
+  // Promise that captures the response from the db call
+  .then(dbAllProductData => res.json(dbAllProductData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
+  Product.findOne
   // be sure to include its associated Category and Tag data
 });
 
