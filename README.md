@@ -40,6 +40,7 @@ THEN I am able to successfully create, update, and delete data in my database
 ## Installation
 - Clone the directly from the GitHub repository to your local machine.
 - Run _npm init_ in the command line.
+- Run _node seeds/index.js_ in the command line to seed the database.
 - Run the command _node server.js_ to launch the application.
 
 ## Usage
@@ -47,24 +48,36 @@ To have an online e-comm inventory that can be Created, Read, Updated, and Delet
 
 ## Mock-Up
 **GET routes** for all categories, all products, and all tags:
-<img src="./images/13-orm-homework-demo-01.gif">
+<img src="./images/mockup/13-orm-homework-demo-01.gif">
 
 **GET routes** for a single category, single product, and single tag:
-<img src="./images/13-orm-homework-demo-02.gif">
+<img src="./images/mockup/13-orm-homework-demo-02.gif">
 
 **POST, PUT, AND DELTE routes** for categories:
-<img src="./images/13-orm-homework-demo-03.gif">
+<img src="./images/mockup/13-orm-homework-demo-03.gif">
 
 ## Deployed Application
 Live url: n/a
 Repo url: https://github.com/cpm-128/ecomm-backend
 
 ### Screencapture
-<img src="">
-<img src="">
+**GET ALL route** one example from deployed application
+<img src="./images/deployed/get-all-deployed.png">
+
+**GET SINGLE BY ID route** one example from deployed application
+<img src="./images/deployed/get-single-example.png">
+
+**POST SINGLE BY ID route** one example from deployed application
+<img src="./images/deployed/post-single-example.png">
+
+**PUT SINGLE BY ID route** one example from deployed application
+<img src="./images/deployed/put-single-deployed.png">
+
+**DELETE SINGLE BY ID route** one example from deployed application
+<img src="./images/deployed/delete-single-deployed.png">
 
 ### Video Walkthrough
-<a href="">Watch here.</a>
+<a href="https://drive.google.com/file/d/1R1jbylcUV1iugMlRzCRJhJWrRMHdGSEi/view?usp=sharing">Watch here.</a>
 
 ## Contributors
 UNC Bootcamp <a href="https://github.com/coding-boot-camp/fantastic-umbrella">starter code</a>.
