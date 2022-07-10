@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
-      category_name: "Shorts"
+      category_name: "Bicycles"
     }
   */
   Category.create(req.body)
@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   /* req.body should look like this...
     {
-      category_name: "Shorts"
+      category_name: "Tricycles"
     }
   */
   Category.update(req.body, {

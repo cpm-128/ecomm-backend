@@ -66,10 +66,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
+      product_name: "Gravel Bicycle",
+      price: 2000.00,
+      stock: 2,
+      tagIds: [7]
     }
   */
   Product.create(req.body)
@@ -96,7 +96,11 @@ router.post('/', (req, res) => {
 
 // PUT product
 router.put('/:id', (req, res) => {
-  // update product data
+  /* req.body should look like this...
+    {
+      tagIds: [7, 5]
+    }
+  */
   Product.update(req.body, {
     where: {
       id: req.params.id,
