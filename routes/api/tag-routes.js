@@ -26,9 +26,32 @@ router.get('/', (req, res) => {
   });
 });
 
+// GET single tag
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
-  // be sure to include its associated Product data
+  Tag.findOne({
+    where: {
+      id: req.params.id
+    },
+    // be sure to include its associated Product data
+    include: [
+      {
+        model: Product,
+        attributes: ['id' , 'product_name' , 'price' , 'stock' , 'category_id']
+      }
+    ]
+  })
+  .then(dbSingleTagData => {
+    if (!dbSingleTagData) {
+      res.status(400).json({ message: 'No tag found with this id.' });
+      return;
+    }
+    res.json(dbSingleTagData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 router.post('/', (req, res) => {
