@@ -71,6 +71,11 @@ router.post('/', (req, res) => {
 
 // PUT a tag name by id
 router.put('/:id', (req, res) => {
+  /* req.body should look like this...
+    {
+      tag_name: "rock music",
+    }
+  */
   Tag.update(req.body , {
     where: {
       id: req.params.id
